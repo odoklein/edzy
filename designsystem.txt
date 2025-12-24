@@ -1,0 +1,50 @@
+Edzy Design System (source of truth)
+
+Goal
+- Clean, minimalist, premium feel: lots of whitespace, subtle borders, soft shadows, strong typography hierarchy.
+
+Typography
+- Display font: Outfit (headings)
+- Body font: Cairo (body/UI)
+- Headings: tight tracking, strong weight, short line-length
+- Body: comfortable leading, avoid dense blocks
+
+Color tokens (Tailwind v4 via @theme in src/index.css)
+- primary: brand purple (used for primary CTA, focus states)
+- secondary: emerald (used sparingly for success/checks)
+- accent: amber (used sparingly for price/discount emphasis)
+- neutrals: Tailwind grays for backgrounds, borders, text
+
+Surfaces
+- Page background: gray-50
+- Primary surface: white with border (gray-200) and soft shadow
+- Keep gradients minimal; prefer solid neutrals + subtle translucency (bg-white/80 + backdrop-blur)
+
+Radius
+- Cards: rounded-2xl to rounded-3xl
+- Pills/badges: rounded-full
+- Buttons: rounded-lg
+
+Shadows
+- soft: subtle elevation for cards and hero container
+- lift: stronger elevation on hover only (avoid heavy drop shadows)
+
+Components
+- Buttons
+  - Primary: `.btn-primary` (brand color, subtle glow)
+  - Secondary: `.btn-secondary` (white surface + border, muted hover)
+- Cards
+  - Use `.card` for consistent padding, border, and shadow
+- Badges
+  - Rounded-full, small text, light tinted background (bg-*/10) + border
+
+Layout
+- Max content width: use `.container-custom`
+- Hero pattern: centered premium card, text centered, image anchored at bottom with overflow-hidden
+
+Do / Don’t
+- Do: border + whitespace + typographic hierarchy
+- Do: keep color accents to CTAs, prices, tiny highlights
+- Don’t: multiple loud gradients, heavy shadows, over-saturated sections
+
+

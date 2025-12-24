@@ -1,68 +1,252 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Custom Arabic Font */
+@font-face {
+  font-family: 'Qatar2022Arabic';
+  src: url('/Qatar2022Arabic-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+@theme {
+  /* Warm, inviting palette */
+  --color-cream: #FDF8F3;
+  --color-cream-dark: #F5EDE4;
+  --color-yellow: #FFDD00;
+  --color-yellow-hover: #F5D000;
+  --color-green: #00AA5B;
+  --color-green-light: #E8F7EF;
+
+  /* Neutrals */
+  --color-gray-900: #1A1A1A;
+  --color-gray-700: #4A4A4A;
+  --color-gray-500: #7A7A7A;
+  --color-gray-300: #C4C4C4;
+  --color-gray-100: #F0F0F0;
+
+  /* Typography */
+  --font-serif: 'DM Serif Display', serif;
+  --font-sans: 'Inter', sans-serif;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer base {
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-gray-900);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    line-height: 1.6;
   }
-  a:hover {
-    color: #747bff;
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    line-height: 1.2;
   }
-  button {
-    background-color: #f9f9f9;
+
+  /* Arabic RTL Styles */
+  html[dir="rtl"] body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+  }
+
+  html[dir="rtl"] h1,
+  html[dir="rtl"] h2,
+  html[dir="rtl"] h3,
+  html[dir="rtl"] .heading-xl,
+  html[dir="rtl"] .heading-lg,
+  html[dir="rtl"] .heading-md,
+  html[dir="rtl"] .font-serif {
+    font-family: 'Qatar2022Arabic', 'Segoe UI', Tahoma, sans-serif;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  html[dir="rtl"] .btn-primary,
+  html[dir="rtl"] .btn-secondary,
+  html[dir="rtl"] .badge {
+    font-family: 'Qatar2022Arabic', sans-serif;
+  }
+}
+
+@layer utilities {
+  .container-custom {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Primary CTA - Yellow */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--color-yellow);
+    color: var(--color-gray-900);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-yellow-hover);
+    transform: translateY(-1px);
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: white;
+    color: var(--color-gray-900);
+    font-weight: 500;
+    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: 1.5px solid var(--color-gray-300);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-gray-900);
+  }
+
+  /* Clean card */
+  .card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+  }
+
+  /* Section styles */
+  .section {
+    padding: 80px 0;
+  }
+
+  .section-alt {
+    background: white;
+    padding: 80px 0;
+  }
+
+  /* Typography utilities */
+  .heading-xl {
+    font-family: var(--font-serif);
+    font-size: clamp(36px, 5vw, 56px);
+    line-height: 1.1;
+    color: var(--color-gray-900);
+  }
+
+  .heading-lg {
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.15;
+    color: var(--color-gray-900);
+  }
+
+  .heading-md {
+    font-family: var(--font-serif);
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .text-body {
+    font-size: 16px;
+    color: var(--color-gray-700);
+    line-height: 1.7;
+  }
+
+  .text-small {
+    font-size: 14px;
+    color: var(--color-gray-500);
+  }
+
+  /* Badge */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--color-green-light);
+    color: var(--color-green);
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 50px;
+  }
+
+  /* Discount badge */
+  .badge-discount {
+    background: #FF6B6B;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* Input field */
+  .input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 15px;
+    border: 1.5px solid var(--color-gray-300);
+    border-radius: 12px;
+    background: white;
+    transition: border-color 0.15s ease;
+    outline: none;
+  }
+
+  .input:focus {
+    border-color: var(--color-gray-900);
+  }
+
+  /* Decorative dots pattern */
+  .dots-pattern {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: radial-gradient(circle, var(--color-gray-300) 2px, transparent 2px);
+    background-size: 12px 12px;
+    opacity: 0.5;
+  }
+
+  /* Feature check */
+  .feature-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--color-gray-700);
+  }
+
+  .feature-check svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--color-green);
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: var(--color-gray-100);
+    margin: 40px 0;
   }
 }
