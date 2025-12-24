@@ -1,7 +1,7 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './context/LanguageContext';
 import { Header } from './components/Header';
+import { Analytics } from '@vercel/analytics/react';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
 import { ProductPage } from './pages/ProductPage';
@@ -22,6 +22,7 @@ function App() {
   return (
     <LanguageProvider>
       <Router>
+        <Analytics />
         <Routes>
           {/* Admin Routes - No Header/Footer */}
           <Route path="/admin" element={<AdminLayout />}>

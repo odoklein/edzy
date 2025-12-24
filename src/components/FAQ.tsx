@@ -6,13 +6,17 @@ export const FAQ: React.FC = () => {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section id="help" className="section">
-            <div className="container-custom">
-                <div className="max-w-3xl mx-auto">
+        <section id="help" className="py-24 bg-white relative overflow-hidden">
+            <div className="container-custom relative z-10">
+                <div className="max-w-4xl mx-auto">
                     {/* Section Title */}
-                    <div className="text-center mb-12">
-                        <p className="text-small uppercase tracking-wider mb-3 text-green-600">{t.faq.label}</p>
-                        <h2 className="heading-lg">{t.faq.title}</h2>
+                    <div className="text-center mb-16">
+                        <p className="text-[11px] font-black text-slate-400 uppercase tracking-[4px] mb-4 bg-slate-50 inline-block px-4 py-1.5 rounded-full border border-slate-100 italic">
+                            {t.faq.label}
+                        </p>
+                        <h2 className="text-4xl md:text-5xl font-black text-slate-900 italic tracking-tight leading-tight">
+                            {t.faq.title}
+                        </h2>
                     </div>
 
                     {/* FAQ Items */}
@@ -20,48 +24,50 @@ export const FAQ: React.FC = () => {
                         {t.faq.items.map((faq, index) => (
                             <div
                                 key={index}
-                                className="bg-white rounded-2xl border border-gray-100 overflow-hidden transition-shadow hover:shadow-md"
+                                className={`rounded-[28px] border transition-all duration-300 overflow-hidden ${openIndex === index ? 'bg-slate-50 border-slate-200 shadow-lg shadow-slate-200/50' : 'bg-white border-slate-100 hover:border-yellow-400/50 hover:shadow-md'}`}
                             >
                                 <button
                                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                                    className={`w-full px-6 py-5 flex items-center justify-between text-${isRTL ? 'right' : 'left'}`}
+                                    className={`w-full px-8 py-6 flex items-center justify-between text-${isRTL ? 'right' : 'left'} group`}
                                 >
-                                    <span className="font-semibold text-gray-900 pr-4">{faq.q}</span>
-                                    <svg
-                                        className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${openIndex === index ? 'rotate-180' : ''}`}
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                    </svg>
+                                    <span className={`text-lg font-black italic tracking-tight transition-colors ${openIndex === index ? 'text-yellow-600' : 'text-slate-900 group-hover:text-slate-700'}`}>{faq.q}</span>
+                                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center transition-all duration-300 ${openIndex === index ? 'bg-yellow-400 text-slate-900 rotate-180' : 'bg-slate-100 text-slate-400'}`}>
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
+                                    </div>
                                 </button>
 
-                                <div className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-96' : 'max-h-0'}`}>
-                                    <p className={`px-6 pb-5 text-gray-600 leading-relaxed text-${isRTL ? 'right' : 'left'}`}>
+                                <div className={`transition-all duration-500 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    <div className={`px-8 pb-8 text-slate-600 font-bold leading-relaxed text-base'}`}>
                                         {faq.a}
-                                    </p>
+                                    </div>
                                 </div>
                             </div>
                         ))}
                     </div>
 
                     {/* Still have questions */}
-                    <div className="mt-12 text-center p-8 bg-green-50 rounded-2xl">
-                        <p className="text-lg font-semibold text-gray-900 mb-2">{t.faq.moreQuestions}</p>
-                        <p className="text-gray-600 mb-4">{t.faq.teamAvailable}</p>
-                        <a
-                            href="https://wa.me/213555123456"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-600 transition-colors"
-                        >
-                            <span>💬</span>
-                            <span>{t.faq.contactWhatsApp}</span>
-                        </a>
+                    <div className="mt-20 relative group">
+                        <div className="absolute inset-0 bg-yellow-400 rounded-[40px] blur-3xl opacity-5 group-hover:opacity-10 transition-opacity"></div>
+                        <div className="relative bg-[#0F172A] rounded-[40px] p-12 text-center border border-slate-800 shadow-2xl overflow-hidden">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-400 opacity-5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+
+                            <h3 className="text-3xl font-black text-white italic tracking-tight mb-4">{t.faq.moreQuestions}</h3>
+                            <p className="text-slate-400 font-bold text-lg mb-10 max-w-lg mx-auto leading-relaxed">{t.faq.teamAvailable}</p>
+
+                            <a
+                                href="https://wa.me/213555123456"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-4 bg-yellow-400 text-slate-900 px-10 py-5 rounded-[22px] font-black uppercase text-[11px] tracking-[2px] italic hover:bg-white transition-all shadow-xl shadow-yellow-400/20"
+                            >
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" /></svg>
+                                <span>{t.faq.contactWhatsApp}</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     );
 };
+

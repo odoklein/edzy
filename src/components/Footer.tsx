@@ -66,13 +66,6 @@ const IconFileText: React.FC<{ size?: number }> = ({ size = 18 }) => (
   </svg>
 );
 
-const IconClock: React.FC<{ size?: number }> = ({ size = 16 }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="12" cy="12" r="10" />
-    <polyline points="12 6 12 12 16 14" />
-  </svg>
-);
-
 export const Footer: React.FC = () => {
   const { t, language } = useLanguage();
 
@@ -91,32 +84,33 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white relative overflow-hidden">
+    <footer className="bg-[#0F172A] text-white relative overflow-hidden">
       {/* Decorative gradient orbs */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-green-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Main Footer Content */}
-      <div className="relative z-10 container-custom pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <div className="relative z-10 container-custom pt-24 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           {/* Brand & Description */}
           <div className="lg:col-span-1">
-            <Link to="/" className="inline-block text-3xl font-serif mb-4 hover:opacity-80 transition-opacity">
-              <span className="text-yellow-400">E</span>dzy
+            <Link to="/" className="group flex items-center gap-2 mb-8 lowercase">
+              <div className="w-10 h-10 bg-yellow-400 rounded-2xl flex items-center justify-center text-slate-900 font-black italic group-hover:bg-white transition-all">E</div>
+              <span className="text-3xl font-black italic tracking-tighter">edzy.</span>
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+            <p className="text-slate-400 font-bold text-sm leading-relaxed mb-10 max-w-xs">
               {t.footer.aboutText}
             </p>
 
             {/* Social Links */}
-            <div className="flex gap-3">
+            <div className="flex gap-4">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center transition-all hover:text-white hover:scale-110 ${social.hoverBg}`}
+                  className={`w-12 h-12 rounded-[18px] bg-white/5 border border-white/5 flex items-center justify-center transition-all hover:scale-110 active:scale-95 ${social.hoverBg}`}
                   title={social.name}
                 >
                   {social.icon}
@@ -127,15 +121,15 @@ export const Footer: React.FC = () => {
 
           {/* Products */}
           <div>
-            <h4 className="font-semibold mb-5 text-white text-sm uppercase tracking-wider">{language === 'ar' ? 'منتجاتنا' : 'Nos Produits'}</h4>
-            <ul className="space-y-3">
+            <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-[3px] mb-8 italic">{language === 'ar' ? 'منتجاتنا' : 'Nos Produits'}</h4>
+            <ul className="space-y-4">
               {products.map((product, i) => (
                 <li key={i}>
                   <Link
                     to={`/product/${product.name.toLowerCase()}`}
-                    className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group"
+                    className="flex items-center gap-3 text-slate-400 hover:text-yellow-400 font-bold transition-all group"
                   >
-                    <span className="opacity-70 group-hover:opacity-100 transition-opacity">{product.icon}</span>
+                    <span className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center opacity-70 group-hover:opacity-100 group-hover:bg-white/10 transition-all">{product.icon}</span>
                     <span className="text-sm">{product.name}</span>
                   </Link>
                 </li>
@@ -145,122 +139,101 @@ export const Footer: React.FC = () => {
 
           {/* Support */}
           <div>
-            <h4 className="font-semibold mb-5 text-white text-sm uppercase tracking-wider">{t.footer.support}</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="/#help" className="text-gray-400 hover:text-white transition-colors flex items-center gap-3 text-sm">
-                  <span className="text-gray-500"><IconHelp size={18} /></span>
-                  {t.footer.faq}
-                </a>
-              </li>
-              <li>
-                <a href="/#payment" className="text-gray-400 hover:text-white transition-colors flex items-center gap-3 text-sm">
-                  <span className="text-gray-500"><IconCreditCard size={18} /></span>
-                  {t.footer.paymentMethods}
-                </a>
-              </li>
-              <li>
-                <a href="/#" className="text-gray-400 hover:text-white transition-colors flex items-center gap-3 text-sm">
-                  <span className="text-gray-500"><IconFileText size={18} /></span>
-                  {language === 'ar' ? 'شروط الاستخدام' : 'Conditions d\'utilisation'}
-                </a>
-              </li>
-              <li>
-                <a href="/#" className="text-gray-400 hover:text-white transition-colors flex items-center gap-3 text-sm">
-                  <span className="text-gray-500"><IconLock size={18} /></span>
-                  {language === 'ar' ? 'سياسة الخصوصية' : 'Politique de confidentialité'}
-                </a>
-              </li>
+            <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-[3px] mb-8 italic">{t.footer.support}</h4>
+            <ul className="space-y-4">
+              {[
+                { label: t.footer.faq, icon: <IconHelp size={18} />, path: '/#help' },
+                { label: t.footer.paymentMethods, icon: <IconCreditCard size={18} />, path: '/#payment' },
+                { label: language === 'ar' ? 'الشروط والاستخدام' : 'Conditions', icon: <IconFileText size={18} />, path: '/#' },
+                { label: language === 'ar' ? 'الخصوصية' : 'Confidentialité', icon: <IconLock size={18} />, path: '/#' },
+              ].map((item, i) => (
+                <li key={i}>
+                  <a href={item.path} className="text-slate-400 hover:text-white font-bold transition-all flex items-center gap-4 text-sm group">
+                    <span className="text-slate-600 group-hover:text-yellow-400 transition-colors">{item.icon}</span>
+                    {item.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-5 text-white text-sm uppercase tracking-wider">{t.footer.contact}</h4>
-            <ul className="space-y-4">
-              <li>
-                <a
-                  href="mailto:contact@edzy.dz"
-                  className="flex items-center gap-3 text-gray-400 hover:text-yellow-400 transition-colors group"
-                >
-                  <span className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-gray-500 group-hover:text-yellow-400 group-hover:bg-yellow-400/10 transition-all">
-                    <IconMail size={18} />
-                  </span>
-                  <div>
-                    <p className="text-xs text-gray-500">Email</p>
-                    <p className="text-sm">contact@edzy.dz</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/213555123456"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-gray-400 hover:text-green-400 transition-colors group"
-                >
-                  <span className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-gray-500 group-hover:text-green-400 group-hover:bg-green-400/10 transition-all">
-                    <IconMessage size={18} />
-                  </span>
-                  <div>
-                    <p className="text-xs text-gray-500">WhatsApp</p>
-                    <p className="text-sm">+213 555 123 456</p>
-                  </div>
-                </a>
-              </li>
-              <li className="flex items-center gap-3 text-gray-400 pt-2">
-                <span className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-gray-500">
-                  <IconClock size={18} />
-                </span>
-                <div>
-                  <p className="text-xs text-gray-500">{language === 'ar' ? 'ساعات العمل' : 'Horaires'}</p>
-                  <p className="text-sm">{language === 'ar' ? '7 أيام / 7 • 9 صباحاً - 11 مساءً' : '7j/7 • 9h - 23h'}</p>
+            <h4 className="text-[10px] font-black text-slate-500 uppercase tracking-[3px] mb-8 italic">{t.footer.contact}</h4>
+            <div className="space-y-8">
+              <a
+                href="mailto:contact@edzy.dz"
+                className="flex items-center gap-4 group"
+              >
+                <div className="w-12 h-12 bg-white/5 rounded-[18px] flex items-center justify-center text-slate-500 group-hover:text-yellow-400 group-hover:bg-white/10 transition-all border border-white/5">
+                  <IconMail size={20} />
                 </div>
-              </li>
-            </ul>
+                <div>
+                  <p className="text-[10px] text-slate-500 font-black uppercase tracking-widest italic group-hover:text-slate-400">Email</p>
+                  <p className="text-sm font-black italic text-slate-300 group-hover:text-white transition-colors">contact@edzy.dz</p>
+                </div>
+              </a>
+
+              <a
+                href="https://wa.me/213555123456"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 group"
+              >
+                <div className="w-12 h-12 bg-white/5 rounded-[18px] flex items-center justify-center text-slate-500 group-hover:text-emerald-400 group-hover:bg-white/10 transition-all border border-white/5">
+                  <IconMessage size={20} />
+                </div>
+                <div>
+                  <p className="text-[10px] text-slate-500 font-black uppercase tracking-widest italic group-hover:text-slate-400">WhatsApp</p>
+                  <p className="text-sm font-black italic text-slate-300 group-hover:text-white transition-colors">+213 555 123 456</p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
 
-        {/* Payment Methods */}
-        <div className="py-8 border-y border-white/10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
-              <span className="text-gray-500 text-sm">{language === 'ar' ? 'طرق الدفع' : 'Paiement sécurisé'}</span>
-              <div className="flex gap-2">
-                <div className="px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-lg text-sm font-medium flex items-center gap-2 text-blue-400">
-                  <IconCreditCard size={16} />
+        {/* Security & Payment */}
+        <div className="py-12 border-t border-white/5">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+            <div className="flex flex-wrap justify-center items-center gap-8">
+              <div className="flex items-center gap-4 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-pointer">
+                <div className="px-5 py-2.5 bg-white/5 rounded-xl border border-white/5 text-[10px] font-black uppercase tracking-widest italic text-white flex items-center gap-3">
+                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
                   BaridiMob
                 </div>
-                <div className="px-4 py-2 bg-yellow-400/20 border border-yellow-400/30 rounded-lg text-sm font-medium flex items-center gap-2 text-yellow-400">
-                  <IconCreditCard size={16} />
-                  CCP
+              </div>
+              <div className="flex items-center gap-4 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-pointer">
+                <div className="px-5 py-2.5 bg-white/5 rounded-xl border border-white/5 text-[10px] font-black uppercase tracking-widest italic text-white flex items-center gap-3">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                  CCP Algerie
                 </div>
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
-              <span className="text-gray-500 text-sm">{language === 'ar' ? 'مضمون بـ' : 'Garanti par'}</span>
-              <div className="flex items-center gap-2 text-green-400 bg-green-400/10 px-4 py-2 rounded-lg border border-green-400/20">
-                <IconShield size={18} />
-                <span className="text-sm font-medium">{language === 'ar' ? 'ضمان 30 يوم' : 'Garantie 30 jours'}</span>
+            <div className="flex items-center gap-6">
+              <div className="flex items-center gap-3 px-6 py-3 bg-emerald-500/10 rounded-[20px] border border-emerald-500/20 shadow-lg shadow-emerald-500/5">
+                <IconShield size={20} className="text-emerald-400" />
+                <span className="text-[11px] font-black italic uppercase tracking-widest text-emerald-400">{language === 'ar' ? 'ضمان استرداد الأموال 100%' : 'Garantie 100% Satisfait'}</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-sm">
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="text-slate-500 text-[11px] font-black uppercase tracking-[2px] italic">
             © 2025 Edzy. {t.footer.rights}
           </p>
 
-          <div className="flex items-center gap-2 text-gray-500 text-sm">
-            <span className="text-lg">🇩🇿</span>
-            <span>{language === 'ar' ? 'صنع في الجزائر بكل' : 'Fait en Algérie avec'}</span>
-            <span className="text-red-500">❤️</span>
+          <div className="flex items-center gap-6 text-slate-500 text-[11px] font-black uppercase tracking-[2px] italic">
+            <div className="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-xl border border-white/5">
+              <span className="text-lg">🇩🇿</span>
+              <span>{language === 'ar' ? 'صنع في الجزائر' : 'Made in Algeria'}</span>
+            </div>
           </div>
         </div>
       </div>
     </footer>
   );
 };
+
