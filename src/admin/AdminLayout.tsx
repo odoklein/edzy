@@ -33,10 +33,10 @@ export const AdminLayout: React.FC = () => {
                 <div className="p-6 border-b border-white/5 flex items-center justify-between">
                     {isSidebarOpen ? (
                         <Link to="/admin" className="text-2xl font-serif tracking-tight">
-                            Edzy <span className="text-yellow-400 text-xs font-sans font-bold tracking-widest uppercase ml-1">Admin</span>
+                            Edzy <span className="text-[#8DE713] text-xs font-sans font-bold tracking-widest uppercase ml-1">Admin</span>
                         </Link>
                     ) : (
-                        <div className="w-8 h-8 bg-yellow-400 rounded-lg flex items-center justify-center text-[#0F172A] font-bold">E</div>
+                        <div className="w-8 h-8 bg-[#8DE713] rounded-lg flex items-center justify-center text-[#041D06] font-bold">E</div>
                     )}
                 </div>
 
@@ -50,7 +50,7 @@ export const AdminLayout: React.FC = () => {
                                     <Link
                                         to={item.path}
                                         className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${isActive
-                                            ? 'bg-yellow-400 text-[#0F172A] font-semibold shadow-lg shadow-yellow-400/10'
+                                            ? 'bg-[#8DE713] text-[#041D06] font-semibold shadow-lg shadow-[#8DE713]/10'
                                             : 'text-slate-400 hover:text-white hover:bg-white/5'
                                             }`}
                                     >
@@ -69,7 +69,7 @@ export const AdminLayout: React.FC = () => {
                 <div className="p-4 border-t border-white/5">
                     <div className={`flex items-center ${isSidebarOpen ? 'gap-3 px-4' : 'justify-center'} py-3`}>
                         <div className="relative">
-                            <div className="w-10 h-10 bg-gradient-to-tr from-yellow-400 to-yellow-200 rounded-xl flex items-center justify-center text-[#0F172A] font-bold shadow-inner">
+                            <div className="w-10 h-10 bg-gradient-to-tr from-[#8DE713] to-[#8DE713]/80 rounded-xl flex items-center justify-center text-[#041D06] font-bold shadow-inner">
                                 A
                             </div>
                             <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 border-2 border-[#0F172A] rounded-full"></div>
@@ -104,7 +104,7 @@ export const AdminLayout: React.FC = () => {
                                 <input
                                     type="text"
                                     placeholder="Rechercher une commande..."
-                                    className="w-full bg-slate-100 border-none rounded-xl py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-yellow-400 transition-all"
+                                    className="w-full bg-slate-100 border-none rounded-xl py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-[#8DE713] transition-all"
                                 />
                             </div>
                         </div>

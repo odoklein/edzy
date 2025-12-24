@@ -40,7 +40,7 @@ export const ProductsPage: React.FC = () => {
             {/* Products Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {products.map((product) => (
-                    <div key={product.id} className={`group bg-white rounded-[32px] border border-slate-200 shadow-sm hover:shadow-xl hover:border-yellow-400/50 transition-all duration-300 overflow-hidden ${!product.active ? 'grayscale' : ''}`}>
+                    <div key={product.id} className={`group bg-white rounded-[32px] border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#8DE713]/50 transition-all duration-300 overflow-hidden ${!product.active ? 'grayscale' : ''}`}>
                         <div className="p-8">
                             <div className="flex items-start justify-between mb-6">
                                 <div className="p-1 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm">
@@ -48,7 +48,7 @@ export const ProductsPage: React.FC = () => {
                                 </div>
                                 <button
                                     onClick={() => toggleActive(product.id)}
-                                    className={`w-14 h-8 rounded-full transition-all relative ${product.active ? 'bg-emerald-500 shadow-sm shadow-emerald-500/20' : 'bg-slate-200'}`}
+                                    className={`w-14 h-8 rounded-full transition-all relative ${product.active ? 'bg-[#8DE713] shadow-sm shadow-[#8DE713]/20' : 'bg-slate-200'}`}
                                 >
                                     <span className={`absolute top-1.5 w-5 h-5 bg-white rounded-full transition-all shadow-md ${product.active ? 'right-1.5' : 'left-1.5'}`} />
                                 </button>
@@ -68,7 +68,7 @@ export const ProductsPage: React.FC = () => {
                                 <div>
                                     <p className="text-[10px] text-slate-400 font-bold uppercase tracking-tighter mb-1">Volume Ventes</p>
                                     <p className="text-lg font-black text-slate-900 leading-none">{product.sales}</p>
-                                    <p className="text-[11px] text-emerald-600 font-bold mt-1 uppercase tracking-tighter">Croissance +8%</p>
+                                    <p className="text-[11px] text-[#8DE713] font-bold mt-1 uppercase tracking-tighter">Croissance +8%</p>
                                 </div>
                             </div>
 
@@ -100,33 +100,33 @@ export const ProductsPage: React.FC = () => {
                         <form className="p-8 space-y-6">
                             <div>
                                 <label className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2 block">Nom commercial</label>
-                                <input type="text" defaultValue={editProduct?.name} className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-semibold focus:ring-2 focus:ring-yellow-400 focus:outline-none transition-all" placeholder="Ex: Netflix Premium 4K" />
+                                <input type="text" defaultValue={editProduct?.name} className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-semibold focus:ring-2 focus:ring-[#8DE713] focus:outline-none transition-all" placeholder="Ex: Netflix Premium 4K" />
                             </div>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div>
                                     <label className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2 block">Slug Icone</label>
-                                    <input type="text" defaultValue={editProduct?.slug} className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-semibold focus:ring-2 focus:ring-yellow-400 focus:outline-none transition-all" placeholder="netflix, spotify..." />
+                                    <input type="text" defaultValue={editProduct?.slug} className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-semibold focus:ring-2 focus:ring-[#8DE713] focus:outline-none transition-all" placeholder="netflix, spotify..." />
                                 </div>
                                 <div>
                                     <label className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2 block">Qualité</label>
-                                    <input type="text" defaultValue={editProduct?.quality} className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-semibold focus:ring-2 focus:ring-yellow-400 focus:outline-none transition-all" placeholder="4K, Full HD..." />
+                                    <input type="text" defaultValue={editProduct?.quality} className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-semibold focus:ring-2 focus:ring-[#8DE713] focus:outline-none transition-all" placeholder="4K, Full HD..." />
                                 </div>
                             </div>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div>
                                     <label className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2 block">Prix Promo (DA)</label>
-                                    <input type="number" defaultValue={editProduct?.price} className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-black focus:ring-2 focus:ring-yellow-400 focus:outline-none transition-all" />
+                                    <input type="number" defaultValue={editProduct?.price} className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-black focus:ring-2 focus:ring-[#8DE713] focus:outline-none transition-all" />
                                 </div>
                                 <div>
                                     <label className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2 block">Prix Reél (DA)</label>
-                                    <input type="number" defaultValue={editProduct?.originalPrice} className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-black focus:ring-2 focus:ring-yellow-400 focus:outline-none transition-all" />
+                                    <input type="number" defaultValue={editProduct?.originalPrice} className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-black focus:ring-2 focus:ring-[#8DE713] focus:outline-none transition-all" />
                                 </div>
                             </div>
 
                             <div className="flex gap-4 pt-4">
-                                <button type="submit" className="flex-1 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-black py-4 rounded-2xl transition-all shadow-lg shadow-yellow-400/20 uppercase text-[11px] tracking-widest italic">
+                                <button type="submit" className="flex-1 bg-[#8DE713] hover:bg-[#8DE713]/90 text-[#041D06] font-black py-4 rounded-2xl transition-all shadow-lg shadow-[#8DE713]/20 uppercase text-[11px] tracking-widest italic">
                                     {editProduct ? 'Mettre à jour l\'offre' : 'Propulser au catalogue'}
                                 </button>
                                 <button

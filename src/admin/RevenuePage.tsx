@@ -17,7 +17,7 @@ const monthlyData = [
 ];
 
 const paymentBreakdown = [
-    { method: 'BARIDI MOB', amount: 1850000, percentage: 72, color: 'bg-yellow-400' },
+    { method: 'BARIDI MOB', amount: 1850000, percentage: 72, color: 'bg-[#8DE713]' },
     { method: 'CCP ALGERIE', amount: 720000, percentage: 28, color: 'bg-slate-300' },
 ];
 
@@ -70,7 +70,7 @@ export const RevenuePage: React.FC = () => {
                         </div>
                         <div className="flex gap-2">
                             {['Volume', 'Valeur'].map(t => (
-                                <button key={t} className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${t === 'Valeur' ? 'bg-yellow-400 text-slate-900' : 'bg-white/5 text-slate-400'}`}>
+                                <button key={t} className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${t === 'Valeur' ? 'bg-[#8DE713] text-[#041D06]' : 'bg-white/5 text-slate-400'}`}>
                                     {t}
                                 </button>
                             ))}
@@ -84,7 +84,7 @@ export const RevenuePage: React.FC = () => {
                                     {data.revenue.toLocaleString()} DA
                                 </div>
                                 <div
-                                    className="w-full bg-gradient-to-t from-yellow-400/80 to-yellow-300 rounded-t-xl transition-all duration-500 group-hover:from-yellow-400 group-hover:to-yellow-200"
+                                    className="w-full bg-gradient-to-t from-[#8DE713]/80 to-[#8DE713] rounded-t-xl transition-all duration-500 group-hover:from-[#8DE713] group-hover:to-[#8DE713]/60"
                                     style={{ height: `${(data.revenue / 320000) * 100}%` }}
                                 />
                                 <span className="text-[10px] font-bold text-slate-500 mt-4 uppercase tracking-tighter">{data.month.slice(0, 3)}</span>
@@ -121,8 +121,8 @@ export const RevenuePage: React.FC = () => {
                     </div>
 
                     <div className="mt-8 p-6 bg-slate-50 rounded-[24px] border border-slate-100 relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 w-24 h-24 bg-yellow-400/10 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110"></div>
-                        <p className="text-[10px] font-black text-yellow-600 uppercase tracking-widest mb-2 relative z-10">Optimisation Strategique</p>
+                        <div className="absolute top-0 right-0 w-24 h-24 bg-[#8DE713]/10 rounded-full -mr-12 -mt-12 transition-transform group-hover:scale-110"></div>
+                        <p className="text-[10px] font-black text-[#8DE713] uppercase tracking-widest mb-2 relative z-10">Optimisation Strategique</p>
                         <p className="text-xs font-bold text-slate-600 leading-relaxed relative z-10 transition-colors group-hover:text-slate-900">
                             BaridiMob domine le flux. Augmentez l'adoption CCP en réduisant les frais de transaction de 2%.
                         </p>
@@ -165,7 +165,7 @@ export const RevenuePage: React.FC = () => {
                     </table>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

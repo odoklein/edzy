@@ -14,7 +14,7 @@ import {
 const stats = [
     { label: 'Revenus Aujourd\'hui', value: '45,200 DA', change: '+12.5%', trend: 'up', icon: <IconRevenue className="text-blue-600" />, color: 'bg-blue-50' },
     { label: 'Commandes Total', value: '1,284', change: '+8.2%', trend: 'up', icon: <IconOrders className="text-orange-600" />, color: 'bg-orange-50' },
-    { label: 'Nouveaux Clients', value: '124', change: '+23.1%', trend: 'up', icon: <IconCustomers className="text-emerald-600" />, color: 'bg-emerald-50' },
+    { label: 'Nouveaux Clients', value: '124', change: '+23.1%', trend: 'up', icon: <IconCustomers className="text-[#8DE713]" />, color: 'bg-[#8DE713]/10' },
     { label: 'Taux de Conversion', value: '3.24%', change: '-1.4%', trend: 'down', icon: <IconBarChart className="text-purple-600" />, color: 'bg-purple-50' },
 ];
 
@@ -28,7 +28,7 @@ const recentOrders = [
 
 const activities = [
     { user: 'Hassan', action: 'a mis à jour', target: 'Logo Netflix', time: '12m', color: 'bg-blue-500' },
-    { user: 'Inès', action: 'a validé la commande', target: '#EDZ-003', time: '32m', color: 'bg-emerald-500' },
+    { user: 'Inès', action: 'a validé la commande', target: '#EDZ-003', time: '32m', color: 'bg-[#8DE713]' },
     { user: 'Système', action: 'a généré le rapport', target: 'Ventes Hebdo', time: '1h', color: 'bg-purple-500' },
     { user: 'Karim', action: 'a ajouté un client', target: 'Meryem Z.', time: '2h', color: 'bg-orange-500' },
 ];
@@ -38,7 +38,7 @@ const chartLabels = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', '
 
 const getStatusStyles = (status: string) => {
     switch (status) {
-        case 'completed': return 'bg-emerald-50 text-emerald-700 border-emerald-100';
+        case 'completed': return 'bg-[#8DE713]/10 text-[#8DE713] border-[#8DE713]/20';
         case 'pending': return 'bg-amber-50 text-amber-700 border-amber-100';
         case 'processing': return 'bg-blue-50 text-blue-700 border-blue-100';
         default: return 'bg-slate-50 text-slate-700 border-slate-100';
@@ -65,8 +65,7 @@ export const DashboardPage: React.FC = () => {
                             <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${stat.color}`}>
                                 {stat.icon}
                             </div>
-                            <div className={`flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg ${stat.trend === 'up' ? 'text-emerald-600 bg-emerald-50' : 'text-rose-600 bg-rose-50'
-                                }`}>
+                            <div className={`flex items-center gap-1 text-xs font-bold px-2 py-1 rounded-lg ${stat.trend === 'up' ? 'text-[#8DE713] bg-[#8DE713]/10' : 'text-rose-600 bg-rose-50'}`}>
                                 {stat.trend === 'up' ? <IconTrendingUp size={14} /> : <IconTrendingDown size={14} />}
                                 {stat.change}
                             </div>
@@ -90,10 +89,10 @@ export const DashboardPage: React.FC = () => {
                         </div>
                         <div className="flex items-center gap-2">
                             <span className="flex items-center gap-1.5 text-xs font-medium text-slate-500 mr-4">
-                                <span className="w-2.5 h-2.5 rounded-full bg-yellow-400"></span>
+                                <span className="w-2.5 h-2.5 rounded-full bg-[#8DE713]"></span>
                                 Ventes Directes
                             </span>
-                            <select className="bg-slate-50 border border-slate-200 text-slate-600 text-xs font-semibold rounded-xl px-4 py-2 focus:ring-2 focus:ring-yellow-400 focus:outline-none cursor-pointer">
+                            <select className="bg-slate-50 border border-slate-200 text-slate-600 text-xs font-semibold rounded-xl px-4 py-2 focus:ring-2 focus:ring-[#8DE713] focus:outline-none cursor-pointer">
                                 <option>Année 2025</option>
                                 <option>Année 2024</option>
                             </select>
@@ -109,10 +108,9 @@ export const DashboardPage: React.FC = () => {
                                     {(value * 1234).toLocaleString()} DA
                                 </div>
                                 <div
-                                    className="w-full bg-yellow-400/20 rounded-t-xl transition-all duration-300 group-hover/bar:bg-yellow-400 relative overflow-hidden"
-                                    style={{ height: `${value * 2.2}px` }}
+                                    className="w-full bg-[#8DE713]/20 rounded-t-xl transition-all duration-300 group-hover/bar:bg-[#8DE713] relative overflow-hidden"
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-t from-yellow-500/10 to-transparent"></div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#8DE713]/10 to-transparent"></div>
                                 </div>
                                 <span className="text-[10px] font-bold text-slate-400 mt-4 uppercase tracking-tighter">{chartLabels[index]}</span>
                             </div>
@@ -130,7 +128,7 @@ export const DashboardPage: React.FC = () => {
                         {activities.map((activity, index) => (
                             <div key={index} className="flex gap-4 group cursor-pointer">
                                 <div className="relative">
-                                    <div className={`w-2 h-2 rounded-full mt-2 ring-4 ring-offset-4 ring-offset-[#0F172A] ${index === 0 ? 'bg-yellow-400 animate-pulse' : 'bg-slate-600'
+                                    <div className={`w-2 h-2 rounded-full mt-2 ring-4 ring-offset-4 ring-offset-[#041D06] ${index === 0 ? 'bg-[#8DE713] animate-pulse' : 'bg-slate-600'
                                         }`}></div>
                                     {index !== activities.length - 1 && (
                                         <div className="absolute top-4 left-1 w-[1px] h-[calc(100%+16px)] bg-slate-800"></div>
@@ -138,7 +136,7 @@ export const DashboardPage: React.FC = () => {
                                 </div>
                                 <div>
                                     <p className="text-sm font-medium">
-                                        <span className="text-yellow-400">{activity.user}</span>
+                                        <span className="text-[#8DE713]">{activity.user}</span>
                                         <span className="text-slate-400 mx-1.5">{activity.action}</span>
                                         <span className="text-white hover:underline">{activity.target}</span>
                                     </p>
@@ -160,7 +158,7 @@ export const DashboardPage: React.FC = () => {
                         <h3 className="text-lg font-bold text-slate-900">Commandes en attente</h3>
                         <p className="text-sm text-slate-500 mt-0.5">Dernières transactions à traiter</p>
                     </div>
-                    <Link to="/admin/orders" className="text-sm font-bold text-yellow-600 hover:text-yellow-700 flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-slate-100">
+                    <Link to="/admin/orders" className="text-sm font-bold text-[#8DE713] hover:text-[#8DE713]/80 flex items-center gap-2 bg-[#041D06] px-4 py-2 rounded-xl shadow-sm border border-[#8DE713]/10">
                         Gestion complète
                     </Link>
                 </div>
@@ -201,7 +199,7 @@ export const DashboardPage: React.FC = () => {
                                     </td>
                                     <td className="px-8 py-5 text-sm font-medium text-slate-500">{order.time}</td>
                                     <td className="px-8 py-5 text-right">
-                                        <button className="p-2 text-slate-400 hover:text-yellow-600 hover:bg-yellow-50 rounded-lg transition-all opacity-0 group-hover:opacity-100 italic font-medium">
+                                        <button className="p-2 text-slate-400 hover:text-[#8DE713] hover:bg-[#8DE713]/10 rounded-lg transition-all opacity-0 group-hover:opacity-100 italic font-medium">
                                             Modifier
                                         </button>
                                     </td>
@@ -214,8 +212,8 @@ export const DashboardPage: React.FC = () => {
 
             {/* Advanced Quick Actions */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <button className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:border-yellow-400 hover:shadow-lg transition-all text-left flex items-start gap-4 group">
-                    <div className="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center text-yellow-600 group-hover:bg-yellow-400 group-hover:text-white transition-all transform group-hover:rotate-6 shadow-sm">
+                <button className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:border-[#8DE713] hover:shadow-lg transition-all text-left flex items-start gap-4 group">
+                    <div className="w-14 h-14 bg-[#8DE713]/10 rounded-2xl flex items-center justify-center text-[#8DE713] group-hover:bg-[#8DE713] group-hover:text-[#041D06] transition-all transform group-hover:rotate-6 shadow-sm">
                         <IconPlus size={24} />
                     </div>
                     <div className="mt-1">
@@ -234,8 +232,8 @@ export const DashboardPage: React.FC = () => {
                     </div>
                 </button>
 
-                <button className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:border-emerald-400 hover:shadow-lg transition-all text-left flex items-start gap-4 group">
-                    <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all transform group-hover:scale-110 shadow-sm">
+                <button className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:border-[#8DE713] hover:shadow-lg transition-all text-left flex items-start gap-4 group">
+                    <div className="w-14 h-14 bg-[#8DE713]/10 rounded-2xl flex items-center justify-center text-[#8DE713] group-hover:bg-[#8DE713] group-hover:text-[#041D06] transition-all transform group-hover:scale-110 shadow-sm">
                         <IconBarChart size={24} />
                     </div>
                     <div className="mt-1">

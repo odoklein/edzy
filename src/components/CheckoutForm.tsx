@@ -1,9 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { IconUpload, IconCheck, IconLock } from './Icons';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 export const CheckoutForm: React.FC = () => {
   const { t } = useLanguage();
+  const { trackOrderCompleted } = useAnalytics();
   const [formData, setFormData] = useState({
     fullName: '',
     whatsapp: '',
@@ -16,6 +18,10 @@ export const CheckoutForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    // Track order completion
+    trackOrderCompleted(`ORD-${Date.now()}`, 0); // Price tracking would need more context here, but at least track the event
+
     setTimeout(() => {
       alert('Commande confirmée! Vous recevrez vos accès dans 30 minutes.');
       setIsSubmitting(false);
@@ -26,7 +32,7 @@ export const CheckoutForm: React.FC = () => {
 
   const paymentMethods = [
     { id: 'baridimob', label: t.checkout.baridimob, info: 'RIP: 00799999 00000 22', color: 'blue' },
-    { id: 'ccp', label: t.checkout.ccp, info: 'CCP: 0012345678 Clé: 90', color: 'yellow' },
+    { id: 'ccp', label: t.checkout.ccp, info: 'CCP: 0012345678 Clé: 90', color: 'lime' },
   ];
 
   return (
@@ -45,8 +51,8 @@ export const CheckoutForm: React.FC = () => {
               type="button"
               onClick={() => setFormData({ ...formData, paymentMethod: method.id })}
               className={`w-full p-4 rounded-xl border-2 text-left transition-all ${formData.paymentMethod === method.id
-                  ? 'border-gray-900 bg-gray-50'
-                  : 'border-gray-200 hover:border-gray-300'
+                ? 'border-gray-900 bg-gray-50'
+                : 'border-gray-200 hover:border-gray-300'
                 }`}
             >
               <div className="flex items-center gap-3">

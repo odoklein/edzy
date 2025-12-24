@@ -14,7 +14,7 @@ const allOrders = [
 
 const getStatusStyles = (status: string) => {
     switch (status) {
-        case 'completed': return 'bg-emerald-50 text-emerald-700 border-emerald-100';
+        case 'completed': return 'bg-[#8DE713]/10 text-[#8DE713] border-[#8DE713]/20';
         case 'pending': return 'bg-amber-50 text-amber-700 border-amber-100';
         case 'processing': return 'bg-blue-50 text-blue-700 border-blue-100';
         case 'cancelled': return 'bg-rose-50 text-rose-700 border-rose-100';
@@ -57,7 +57,7 @@ export const OrdersPage: React.FC = () => {
                         placeholder="Rechercher par client, référence ou produit..."
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        className="w-full bg-white border border-slate-200 rounded-2xl py-3.5 pl-12 pr-4 text-sm focus:ring-2 focus:ring-yellow-400 transition-all shadow-sm"
+                        className="w-full bg-white border border-slate-200 rounded-2xl py-3.5 pl-12 pr-4 text-sm focus:ring-2 focus:ring-[#8DE713] transition-all shadow-sm"
                     />
                 </div>
 
@@ -96,7 +96,7 @@ export const OrdersPage: React.FC = () => {
                             {filteredOrders.map((order) => (
                                 <tr key={order.id} className="hover:bg-slate-50 transition-colors group">
                                     <td className="px-8 py-5 font-mono text-xs font-bold text-slate-400">
-                                        <span className="text-yellow-500 mr-0.5">#</span>{order.id.split('-')[1]}
+                                        <span className="text-[#8DE713] mr-0.5">#</span>{order.id.split('-')[1]}
                                     </td>
                                     <td className="px-8 py-5">
                                         <div>
@@ -122,7 +122,7 @@ export const OrdersPage: React.FC = () => {
                                     <td className="px-8 py-5 text-right">
                                         <button
                                             onClick={() => setSelectedOrder(order)}
-                                            className="px-4 py-2 text-xs font-black text-slate-900 bg-slate-100 hover:bg-yellow-400 transition-all rounded-xl"
+                                            className="px-4 py-2 text-xs font-black text-[#041D06] bg-slate-100 hover:bg-[#8DE713] transition-all rounded-xl"
                                         >
                                             GÉRER
                                         </button>
@@ -171,7 +171,7 @@ export const OrdersPage: React.FC = () => {
                                 <div>
                                     <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-3">Mode de Paiement</p>
                                     <div className="inline-flex items-center gap-2 bg-slate-50 border border-slate-100 px-4 py-2 rounded-2xl">
-                                        <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                                        <div className="w-2 h-2 rounded-full bg-[#8DE713]"></div>
                                         <span className="font-black text-slate-900 uppercase text-xs italic">{selectedOrder.paymentMethod}</span>
                                     </div>
                                 </div>
@@ -189,7 +189,7 @@ export const OrdersPage: React.FC = () => {
                             </div>
 
                             <div className="flex gap-4 pt-4">
-                                <button className="flex-1 bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-black py-4 rounded-2xl transition-all shadow-lg shadow-yellow-400/20 uppercase text-xs tracking-widest">
+                                <button className="flex-1 bg-[#8DE713] hover:bg-[#8DE713]/90 text-[#041D06] font-black py-4 rounded-2xl transition-all shadow-lg shadow-[#8DE713]/20 uppercase text-xs tracking-widest">
                                     Confirmer la livraison
                                 </button>
                                 <button className="px-6 bg-slate-100 hover:bg-slate-200 text-slate-600 font-black py-4 rounded-2xl transition-all uppercase text-xs tracking-widest">

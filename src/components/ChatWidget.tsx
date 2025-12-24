@@ -116,7 +116,7 @@ export const ChatWidget: React.FC = () => {
             {/* Chat Button */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`fixed bottom-24 z-50 w-14 h-14 bg-yellow-400 text-gray-900 rounded-full shadow-lg flex items-center justify-center hover:bg-yellow-300 transition-all hover:scale-110 ${isRTL ? 'left-6' : 'right-6'}`}
+                className={`fixed bottom-24 z-50 w-14 h-14 bg-[#8DE713] text-[#041D06] rounded-full shadow-lg flex items-center justify-center hover:bg-[#8DE713]/90 transition-all hover:scale-110 ${isRTL ? 'left-6' : 'right-6'}`}
             >
                 {isOpen ? (
                     <span className="text-2xl">✕</span>
@@ -132,7 +132,7 @@ export const ChatWidget: React.FC = () => {
                     <div className="bg-gray-900 text-white p-4">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center text-gray-900 font-bold">
+                                <div className="w-10 h-10 bg-[#8DE713] rounded-full flex items-center justify-center text-[#041D06] font-bold">
                                     🤖
                                 </div>
                                 <div>
@@ -155,7 +155,7 @@ export const ChatWidget: React.FC = () => {
                                     <div
                                         className={`p-3 rounded-2xl whitespace-pre-line text-sm ${msg.isBot
                                             ? 'bg-white border border-gray-200 rounded-tl-none'
-                                            : 'bg-yellow-400 text-gray-900 rounded-tr-none'
+                                            : 'bg-[#8DE713] text-[#041D06] rounded-tr-none'
                                             }`}
                                     >
                                         {msg.text}
@@ -168,7 +168,7 @@ export const ChatWidget: React.FC = () => {
                                                 <button
                                                     key={i}
                                                     onClick={() => handleQuickReply(option)}
-                                                    className="text-xs px-3 py-2 bg-white border border-gray-200 rounded-full hover:border-yellow-400 hover:bg-yellow-50 transition-colors"
+                                                    className="text-xs px-3 py-2 bg-white border border-gray-200 rounded-full hover:border-[#8DE713] hover:bg-[#8DE713]/10 transition-colors"
                                                 >
                                                     {option}
                                                 </button>
@@ -204,7 +204,7 @@ export const ChatWidget: React.FC = () => {
                             href="https://wa.me/213555123456"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2 w-full py-3 bg-green-500 text-white rounded-xl font-medium hover:bg-green-600 transition-colors"
+                            className="flex items-center justify-center gap-2 w-full py-3 bg-lime-500 text-white rounded-xl font-medium hover:bg-lime-600 transition-colors"
                         >
                             <span>👤</span>
                             <span>{language === 'ar' ? 'تكلم مع فريقنا' : 'Parler à notre équipe'}</span>

@@ -17,7 +17,7 @@ export const Comparison: React.FC = () => {
             <div className="container-custom relative z-10">
                 {/* Section Title */}
                 <div className="text-center mb-20 max-w-3xl mx-auto">
-                    <p className="text-[11px] font-black text-yellow-600 uppercase tracking-[4px] mb-4 bg-yellow-50 inline-block px-4 py-1.5 rounded-full border border-yellow-100 italic">
+                    <p className="text-[11px] font-black text-[#8DE713] uppercase tracking-[4px] mb-4 bg-[#8DE713]/10 inline-block px-4 py-1.5 rounded-full border border-[#8DE713]/20 italic">
                         {t.comparison.label}
                     </p>
                     <h2 className="text-4xl md:text-5xl font-black text-slate-900 italic tracking-tight leading-tight">
@@ -30,7 +30,7 @@ export const Comparison: React.FC = () => {
                     <div className="bg-white rounded-[40px] overflow-hidden border border-slate-200 shadow-2xl shadow-slate-200/50">
                         <div className="grid grid-cols-4 bg-[#0F172A] text-white text-[10px] font-black uppercase tracking-widest italic">
                             <div className="px-6 py-6 col-span-1 border-r border-slate-800">{t.comparison.service}</div>
-                            <div className="px-6 py-6 text-center bg-yellow-400 text-slate-900">Edzy</div>
+                            <div className="px-6 py-6 text-center bg-[#8DE713] text-[#041D06]">Edzy</div>
                             <div className="px-6 py-6 text-center border-l border-slate-800">{t.comparison.official}</div>
                             <div className="px-6 py-6 text-center border-l border-slate-800">Ratio</div>
                         </div>
@@ -38,12 +38,12 @@ export const Comparison: React.FC = () => {
                         {comparisons.map((row, index) => (
                             <div key={index} className="grid grid-cols-4 border-b border-slate-100 last:border-0 hover:bg-slate-50 transition-colors">
                                 <div className="px-6 py-6 text-sm font-black text-slate-900 italic tracking-tight">{row.feature}</div>
-                                <div className="px-6 py-6 text-center bg-yellow-50/50">
-                                    <span className="text-lg font-black text-slate-900 italic">{row.edzy}</span>
+                                <div className="px-6 py-6 text-center bg-[#8DE713]/5">
+                                    <span className="text-lg font-black text-[#041D06] italic">{row.edzy}</span>
                                 </div>
                                 <div className="px-6 py-6 text-center text-slate-400 font-bold line-through opacity-50">{row.official}</div>
                                 <div className="px-6 py-6 text-center flex items-center justify-center">
-                                    <span className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-600 text-[10px] font-black rounded-full uppercase tracking-tighter shadow-sm border border-emerald-100">
+                                    <span className="inline-block px-4 py-1.5 bg-[#8DE713]/10 text-[#8DE713] text-[10px] font-black rounded-full uppercase tracking-tighter shadow-sm border border-[#8DE713]/20">
                                         ÉCO. {row.savings}
                                     </span>
                                 </div>
@@ -66,7 +66,7 @@ export const Comparison: React.FC = () => {
                             <div className="space-y-6 mb-12">
                                 {t.comparison.benefits.items.map((benefit, index) => (
                                     <div key={index} className="flex items-center gap-4 group">
-                                        <div className="w-10 h-10 bg-yellow-400 rounded-2xl flex items-center justify-center text-slate-900 shadow-lg shadow-yellow-400/20 group-hover:scale-110 transition-transform">
+                                        <div className="w-10 h-10 bg-[#8DE713] rounded-2xl flex items-center justify-center text-[#041D06] shadow-lg shadow-[#8DE713]/20 group-hover:scale-110 transition-transform">
                                             <IconCheck size={20} />
                                         </div>
                                         <span className="text-slate-700 font-bold text-lg">{benefit}</span>
@@ -76,15 +76,15 @@ export const Comparison: React.FC = () => {
                         </div>
 
                         {/* CTA Card */}
-                        <div className="bg-[#0F172A] rounded-[40px] p-10 text-white relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-400 opacity-10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
+                        <div className="bg-[#041D06] rounded-[40px] p-10 text-white relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-[#8DE713] opacity-10 rounded-full blur-3xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-700"></div>
 
-                            <p className="text-sm font-black text-yellow-400 uppercase tracking-[3px] mb-3 italic">{t.comparison.cta.title}</p>
+                            <p className="text-sm font-black text-[#8DE713] uppercase tracking-[3px] mb-3 italic">{t.comparison.cta.title}</p>
                             <p className="text-slate-400 text-lg font-bold mb-8 transition-colors group-hover:text-white leading-relaxed">{t.comparison.cta.subtitle}</p>
 
                             <a
                                 href="#products"
-                                className={`inline-flex items-center gap-3 bg-white text-slate-900 px-10 py-5 rounded-[22px] font-black uppercase text-[11px] tracking-[2px] italic hover:bg-yellow-400 transition-all shadow-xl shadow-slate-900/50 hover:shadow-yellow-400/20`}
+                                className={`inline-flex items-center gap-3 bg-white text-[#041D06] px-10 py-5 rounded-[22px] font-black uppercase text-[11px] tracking-[2px] italic hover:bg-[#8DE713] transition-all shadow-xl shadow-black/50 hover:shadow-[#8DE713]/20`}
                             >
                                 <span>{t.comparison.cta.button}</span>
                                 <span className={`${isRTL ? 'rotate-180' : ''} group-hover:translate-x-1 transition-transform`}>→</span>

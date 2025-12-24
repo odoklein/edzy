@@ -38,13 +38,13 @@ export const HowItWorks: React.FC = () => {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       {/* Background elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-400/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#8DE713]/5 rounded-full blur-3xl -mr-48 -mt-48"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#8DE713]/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
 
       <div className="container-custom relative z-10">
         {/* Section Title */}
         <div className="text-center mb-20 max-w-2xl mx-auto">
-          <p className="text-[11px] font-black text-yellow-600 uppercase tracking-[4px] mb-4 bg-yellow-50 inline-block px-4 py-1.5 rounded-full border border-yellow-100 italic">
+          <p className="text-[11px] font-black text-[#041D06] uppercase tracking-[4px] mb-4 bg-[#8DE713]/10 inline-block px-4 py-1.5 rounded-full border border-[#8DE713]/20 italic">
             {t.howItWorks.label}
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-slate-900 italic tracking-tight leading-tight">
@@ -59,12 +59,12 @@ export const HowItWorks: React.FC = () => {
               {/* Icon Container */}
               <div className="relative mb-8 p-1">
                 {/* Border Ring */}
-                <div className="absolute inset-0 rounded-[32px] border-2 border-dashed border-slate-100 group-hover:border-yellow-400 transition-all duration-500 group-hover:rotate-45"></div>
+                <div className="absolute inset-0 rounded-[32px] border-2 border-dashed border-slate-100 group-hover:border-[#8DE713] transition-all duration-500 group-hover:rotate-45"></div>
 
                 {/* Background Blob */}
-                <div className="relative w-28 h-28 bg-slate-50 rounded-[28px] flex items-center justify-center transition-all duration-300 group-hover:bg-[#0F172A] group-hover:shadow-xl group-hover:shadow-slate-900/10">
+                <div className="relative w-28 h-28 bg-slate-50 rounded-[28px] flex items-center justify-center transition-all duration-300 group-hover:bg-[#041D06] group-hover:shadow-xl group-hover:shadow-slate-900/10">
                   {StepIconSelectors[index]({
-                    className: "w-10 h-10 text-slate-400 group-hover:text-yellow-400 transition-colors duration-300"
+                    className: "w-10 h-10 text-slate-400 group-hover:text-[#8DE713] transition-colors duration-300"
                   })}
 
                   {/* Small Number Badge */}
@@ -76,7 +76,7 @@ export const HowItWorks: React.FC = () => {
 
               {/* Text Content */}
               <div className="px-4">
-                <h3 className="text-xl font-black text-slate-900 italic tracking-tight mb-3 group-hover:text-yellow-600 transition-colors">
+                <h3 className="text-xl font-black text-slate-900 italic tracking-tight mb-3 group-hover:text-[#041D06] transition-colors">
                   {step.title}
                 </h3>
                 <p className="text-sm text-slate-500 font-bold leading-relaxed">

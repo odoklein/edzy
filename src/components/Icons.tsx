@@ -109,5 +109,5 @@ export const getProductIcon = (productId: string, size = 48) => {
         youtube: <IconYoutube size={size} />,
         canva: <IconCanva size={size} />,
     };
-    return icons[productId] || <IconStar size={size} className="text-yellow-500" />;
+    return icons[productId] || <IconStar size={size} className="text-[#8DE713]" />;
 };

@@ -14,7 +14,7 @@ const allCustomers = [
 const getStatusStyles = (status: string) => {
     switch (status) {
         case 'vip': return 'bg-amber-50 text-amber-700 border-amber-100';
-        case 'active': return 'bg-emerald-50 text-emerald-700 border-emerald-100';
+        case 'active': return 'bg-[#8DE713]/10 text-[#8DE713] border-[#8DE713]/20';
         case 'new': return 'bg-blue-50 text-blue-700 border-blue-100';
         case 'inactive': return 'bg-slate-50 text-slate-500 border-slate-100';
         default: return 'bg-slate-50 text-slate-700 border-slate-100';
@@ -35,7 +35,7 @@ export const CustomersPage: React.FC = () => {
     const stats = [
         { label: 'Total Clients', value: allCustomers.length, icon: <IconCustomers size={18} />, color: 'text-slate-600 bg-slate-100' },
         { label: 'Clients VIP', value: allCustomers.filter(c => c.status === 'vip').length, icon: '⭐️', color: 'text-amber-600 bg-amber-50' },
-        { label: 'Actifs', value: allCustomers.filter(c => c.status === 'active').length, icon: '✅', color: 'text-emerald-600 bg-emerald-50' },
+        { label: 'Actifs', value: allCustomers.filter(c => c.status === 'active').length, icon: '✅', color: 'text-[#8DE713] bg-[#8DE713]/10' },
         { label: 'Nouveaux', value: allCustomers.filter(c => c.status === 'new').length, icon: '✨', color: 'text-blue-600 bg-blue-50' },
     ];
 
@@ -67,7 +67,7 @@ export const CustomersPage: React.FC = () => {
                         placeholder="Rechercher par nom, email..."
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
-                        className="w-full bg-white border border-slate-200 rounded-2xl py-3 pl-12 pr-4 text-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none transition-all shadow-sm"
+                        className="w-full bg-white border border-slate-200 rounded-2xl py-3 pl-12 pr-4 text-sm focus:ring-2 focus:ring-[#8DE713] focus:outline-none transition-all shadow-sm"
                     />
                 </div>
 
@@ -134,7 +134,7 @@ export const CustomersPage: React.FC = () => {
                                         <button className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all shadow-sm bg-white border border-slate-100">
                                             <IconMail size={16} />
                                         </button>
-                                        <button className="p-2 text-slate-400 hover:text-yellow-600 hover:bg-yellow-50 rounded-xl transition-all shadow-sm bg-white border border-slate-100 italic font-bold text-xs px-3">
+                                        <button className="p-2 text-slate-400 hover:text-green-700 hover:bg-green-50 rounded-xl transition-all shadow-sm bg-white border border-slate-100 italic font-bold text-xs px-3">
                                             Gérer
                                         </button>
                                     </td>

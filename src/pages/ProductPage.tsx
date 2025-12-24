@@ -4,11 +4,14 @@ import { useLanguage } from '../context/LanguageContext';
 import { products } from '../data/products';
 import { ProductRules } from '../components/ProductRules';
 import { getProductIcon, IconCheck, IconCart } from '../components/Icons';
+import { SEO } from '../components/SEO';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 export const ProductPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { trackOrderStarted } = useAnalytics();
   const [quantity, setQuantity] = useState(1);
 
   const product = products.find((p) => p.id === productId);
@@ -16,6 +19,7 @@ export const ProductPage: React.FC = () => {
   if (!product) {
     return (
       <div className="section pt-32">
+        <SEO title="Produit non trouvé" description="Le produit que vous recherchez n'existe pas." />
         <div className="container-custom text-center">
           <div className="card max-w-md mx-auto">
             <div className="text-5xl mb-4">🔍</div>
@@ -31,13 +35,42 @@ export const ProductPage: React.FC = () => {
     ((product.originalPrice - product.price) / product.originalPrice) * 100
   );
 
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    'name': product.name,
+    'description': product.description,
+    'image': `https://edzy.dz/products/${product.id}.jpg`,
+    'brand': {
+      '@type': 'Brand',
+      'name': 'Edzy'
+    },
+    'offers': {
+      '@type': 'Offer',
+      'url': `https://edzy.dz/product/${product.id}`,
+      'priceCurrency': 'DZD',
+      'price': product.price,
+      'availability': 'https://schema.org/InStock',
+      'priceValidUntil': '2026-12-31'
+    }
+  };
+
   const handleAddToCart = () => {
+    trackOrderStarted(product.id, product.price * quantity);
     localStorage.setItem('edzy_cart', JSON.stringify({ product, quantity }));
     navigate('/checkout');
   };
 
   return (
     <div className="section pt-28">
+      <SEO
+        title={`${product.name} prix Algérie`}
+        description={`Achetez votre abonnement ${product.name} en Algérie au meilleur prix (${product.price} DA). Livraison rapide par WhatsApp. Paiement BaridiMob & CCP.`}
+        type="product"
+        url={`/product/${product.id}`}
+        schema={productSchema}
+        language={language}
+      />
       <div className="container-custom">
         {/* Breadcrumb */}
         <div className="mb-8 text-small">

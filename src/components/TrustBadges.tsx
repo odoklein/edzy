@@ -20,9 +20,9 @@ export const TrustBadges: React.FC<TrustBadgesProps> = ({ className }) => {
       {badges.map((badge, index) => (
         <div
           key={index}
-          className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 border border-green-100 rounded-full text-sm text-green-700"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-white/90"
         >
-          <span className="text-green-600">{badge.icon}</span>
+          <span className="text-[#8DE713]">{badge.icon}</span>
           <span className="font-medium">{badge.text}</span>
         </div>
       ))}

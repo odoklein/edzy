@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
 
   const socialLinks = [
     { name: 'Facebook', url: 'https://facebook.com', icon: <IconFacebook size={18} />, hoverBg: 'hover:bg-blue-600' },
-    { name: 'Instagram', url: 'https://instagram.com', icon: <IconInstagram size={18} />, hoverBg: 'hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-pink-500 hover:to-purple-600' },
+    { name: 'Instagram', url: 'https://instagram.com', icon: <IconInstagram size={18} />, hoverBg: 'hover:bg-gradient-to-tr hover:from-[#8DE713] hover:via-pink-500 hover:to-[#041D06]' },
     { name: 'TikTok', url: 'https://tiktok.com', icon: <IconTiktok size={18} />, hoverBg: 'hover:bg-black' },
     { name: 'WhatsApp', url: 'https://wa.me/213555123456', icon: <IconWhatsApp size={18} />, hoverBg: 'hover:bg-green-600' },
   ];
@@ -84,19 +84,18 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-[#0F172A] text-white relative overflow-hidden">
+    <footer className="bg-[#041D06] text-white relative overflow-hidden">
       {/* Decorative gradient orbs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#8DE713]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-[#8DE713]/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Main Footer Content */}
-      <div className="relative z-10 container-custom pt-24 pb-12">
+      <div className="relative z-10 container-custom pt-32 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           {/* Brand & Description */}
           <div className="lg:col-span-1">
-            <Link to="/" className="group flex items-center gap-2 mb-8 lowercase">
-              <div className="w-10 h-10 bg-yellow-400 rounded-2xl flex items-center justify-center text-slate-900 font-black italic group-hover:bg-white transition-all">E</div>
-              <span className="text-3xl font-black italic tracking-tighter">edzy.</span>
+            <Link to="/" className="group inline-block mb-8">
+              <img src="/logofront.png" alt="Edzy" className="h-14 w-auto object-contain transition-transform group-hover:scale-105" />
             </Link>
             <p className="text-slate-400 font-bold text-sm leading-relaxed mb-10 max-w-xs">
               {t.footer.aboutText}
@@ -127,7 +126,7 @@ export const Footer: React.FC = () => {
                 <li key={i}>
                   <Link
                     to={`/product/${product.name.toLowerCase()}`}
-                    className="flex items-center gap-3 text-slate-400 hover:text-yellow-400 font-bold transition-all group"
+                    className="flex items-center gap-3 text-slate-400 hover:text-[#8DE713] font-bold transition-all group"
                   >
                     <span className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center opacity-70 group-hover:opacity-100 group-hover:bg-white/10 transition-all">{product.icon}</span>
                     <span className="text-sm">{product.name}</span>
@@ -149,7 +148,7 @@ export const Footer: React.FC = () => {
               ].map((item, i) => (
                 <li key={i}>
                   <a href={item.path} className="text-slate-400 hover:text-white font-bold transition-all flex items-center gap-4 text-sm group">
-                    <span className="text-slate-600 group-hover:text-yellow-400 transition-colors">{item.icon}</span>
+                    <span className="text-slate-600 group-hover:text-[#8DE713] transition-colors">{item.icon}</span>
                     {item.label}
                   </a>
                 </li>
@@ -165,7 +164,7 @@ export const Footer: React.FC = () => {
                 href="mailto:contact@edzy.dz"
                 className="flex items-center gap-4 group"
               >
-                <div className="w-12 h-12 bg-white/5 rounded-[18px] flex items-center justify-center text-slate-500 group-hover:text-yellow-400 group-hover:bg-white/10 transition-all border border-white/5">
+                <div className="w-12 h-12 bg-white/5 rounded-[18px] flex items-center justify-center text-slate-500 group-hover:text-[#8DE713] group-hover:bg-white/10 transition-all border border-white/5">
                   <IconMail size={20} />
                 </div>
                 <div>
@@ -180,7 +179,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 group"
               >
-                <div className="w-12 h-12 bg-white/5 rounded-[18px] flex items-center justify-center text-slate-500 group-hover:text-emerald-400 group-hover:bg-white/10 transition-all border border-white/5">
+                <div className="w-12 h-12 bg-white/5 rounded-[18px] flex items-center justify-center text-slate-500 group-hover:text-[#8DE713] group-hover:bg-white/10 transition-all border border-white/5">
                   <IconMessage size={20} />
                 </div>
                 <div>
@@ -198,22 +197,22 @@ export const Footer: React.FC = () => {
             <div className="flex flex-wrap justify-center items-center gap-8">
               <div className="flex items-center gap-4 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-pointer">
                 <div className="px-5 py-2.5 bg-white/5 rounded-xl border border-white/5 text-[10px] font-black uppercase tracking-widest italic text-white flex items-center gap-3">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[#8DE713] rounded-full"></div>
                   BaridiMob
                 </div>
               </div>
               <div className="flex items-center gap-4 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-pointer">
                 <div className="px-5 py-2.5 bg-white/5 rounded-xl border border-white/5 text-[10px] font-black uppercase tracking-widest italic text-white flex items-center gap-3">
-                  <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                  <div className="w-2 h-2 bg-[#8DE713] rounded-full"></div>
                   CCP Algerie
                 </div>
               </div>
             </div>
 
             <div className="flex items-center gap-6">
-              <div className="flex items-center gap-3 px-6 py-3 bg-emerald-500/10 rounded-[20px] border border-emerald-500/20 shadow-lg shadow-emerald-500/5">
-                <IconShield size={20} className="text-emerald-400" />
-                <span className="text-[11px] font-black italic uppercase tracking-widest text-emerald-400">{language === 'ar' ? 'ضمان استرداد الأموال 100%' : 'Garantie 100% Satisfait'}</span>
+              <div className="flex items-center gap-3 px-6 py-3 bg-[#8DE713]/10 rounded-[20px] border border-[#8DE713]/20 shadow-lg shadow-[#8DE713]/5">
+                <IconShield size={20} className="text-[#8DE713]" />
+                <span className="text-[11px] font-black italic uppercase tracking-widest text-[#8DE713]">{language === 'ar' ? 'ضمان استرداد الأموال 100%' : 'Garantie 100% Satisfait'}</span>
               </div>
             </div>
           </div>

@@ -14,10 +14,15 @@
   /* Warm, inviting palette */
   --color-cream: #FDF8F3;
   --color-cream-dark: #F5EDE4;
-  --color-yellow: #FFDD00;
-  --color-yellow-hover: #F5D000;
-  --color-green: #00AA5B;
-  --color-green-light: #E8F7EF;
+  --color-yellow: #8DE713;
+  --color-yellow-hover: #7acc10;
+  --color-green: #8DE713;
+  --color-green-dark: #041D06;
+  --color-green-light: #f4fce9;
+
+  /* Primary Brand Colors */
+  --color-brand-dark: #041D06;
+  --color-brand-lime: #8DE713;
 
   /* Neutrals */
   --color-gray-900: #1A1A1A;
@@ -91,20 +96,22 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background: var(--color-yellow);
-    color: var(--color-gray-900);
-    font-weight: 600;
+    background: var(--color-brand-lime);
+    color: var(--color-brand-dark);
+    font-weight: 700;
     font-size: 15px;
     padding: 14px 28px;
     border-radius: 50px;
     border: none;
     cursor: pointer;
-    transition: background 0.15s ease, transform 0.15s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px 0 rgba(141, 231, 19, 0.3);
   }
 
   .btn-primary:hover {
-    background: var(--color-yellow-hover);
-    transform: translateY(-1px);
+    background: #a3f03a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(141, 231, 19, 0.4);
   }
 
   /* Secondary button */
@@ -152,14 +159,12 @@
     font-family: var(--font-serif);
     font-size: clamp(36px, 5vw, 56px);
     line-height: 1.1;
-    color: var(--color-gray-900);
   }
 
   .heading-lg {
     font-family: var(--font-serif);
     font-size: clamp(28px, 4vw, 40px);
     line-height: 1.15;
-    color: var(--color-gray-900);
   }
 
   .heading-md {
@@ -170,13 +175,11 @@
 
   .text-body {
     font-size: 16px;
-    color: var(--color-gray-700);
     line-height: 1.7;
   }
 
   .text-small {
     font-size: 14px;
-    color: var(--color-gray-500);
   }
 
   /* Badge */

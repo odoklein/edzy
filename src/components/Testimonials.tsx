@@ -8,12 +8,12 @@ export const Testimonials: React.FC = () => {
     return (
         <section className="py-24 bg-[#F8FAFC] relative overflow-hidden">
             {/* Background Accent */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-emerald-400/5 blur-[120px] rounded-full pointer-events-none"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#8DE713]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
             <div className="container-custom relative z-10">
                 {/* Section Title */}
                 <div className="text-center mb-20 max-w-3xl mx-auto">
-                    <p className="text-[11px] font-black text-emerald-600 uppercase tracking-[4px] mb-4 bg-emerald-50 inline-block px-4 py-1.5 rounded-full border border-emerald-100 italic">
+                    <p className="text-[11px] font-black text-[#8DE713] uppercase tracking-[4px] mb-4 bg-[#8DE713]/10 inline-block px-4 py-1.5 rounded-full border border-[#8DE713]/20 italic">
                         {t.testimonials.label}
                     </p>
                     <h2 className="text-4xl md:text-5xl font-black text-slate-900 italic tracking-tight leading-tight">
@@ -31,7 +31,7 @@ export const Testimonials: React.FC = () => {
                             {/* Rating */}
                             <div className="flex gap-1 mb-6 relative z-10">
                                 {[...Array(5)].map((_, i) => (
-                                    <IconStar key={i} size={16} className="text-yellow-400" />
+                                    <IconStar key={i} size={16} className="text-[#8DE713]" />
                                 ))}
                             </div>
 
@@ -42,7 +42,7 @@ export const Testimonials: React.FC = () => {
 
                             {/* Author */}
                             <div className="flex items-center gap-4 relative z-10">
-                                <div className="w-14 h-14 bg-[#0F172A] rounded-2xl flex items-center justify-center font-black text-yellow-400 text-xl italic shadow-lg shadow-slate-900/10 group-hover:scale-110 transition-transform">
+                                <div className="w-14 h-14 bg-[#041D06] rounded-2xl flex items-center justify-center font-black text-[#8DE713] text-xl italic shadow-lg shadow-black/10 group-hover:scale-110 transition-transform">
                                     {testimonial.name.charAt(0)}
                                 </div>
                                 <div>
@@ -63,7 +63,7 @@ export const Testimonials: React.FC = () => {
                         { value: '99%', label: t.testimonials.stats.satisfaction, icon: 'Smile' },
                     ].map((stat, i) => (
                         <div key={i} className="bg-white/50 backdrop-blur-sm p-8 rounded-[32px] border border-white shadow-sm text-center group hover:bg-white transition-colors">
-                            <p className="text-3xl md:text-4xl font-black text-slate-900 italic tracking-tighter mb-2 group-hover:text-yellow-600 transition-colors">{stat.value}</p>
+                            <p className="text-3xl md:text-4xl font-black text-slate-900 italic tracking-tighter mb-2 group-hover:text-[#8DE713] transition-colors">{stat.value}</p>
                             <p className="text-[10px] text-slate-400 font-black uppercase tracking-widest">{stat.label}</p>
                         </div>
                     ))}

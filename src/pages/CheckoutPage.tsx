@@ -4,6 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { CheckoutForm } from '../components/CheckoutForm';
 import { Product } from '../data/products';
 import { getProductIcon, IconCheck } from '../components/Icons';
+import { SEO } from '../components/SEO';
 
 interface CartItem {
   product: Product;
@@ -11,7 +12,7 @@ interface CartItem {
 }
 
 export const CheckoutPage: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [cartItem, setCartItem] = useState<CartItem | null>(null);
 
   useEffect(() => {
@@ -22,6 +23,7 @@ export const CheckoutPage: React.FC = () => {
   if (!cartItem) {
     return (
       <div className="section pt-32">
+        <SEO title="Panier vide" description="Votre panier est vide. Découvrez nos offres d'abonnement premium." />
         <div className="container-custom">
           <div className="card text-center py-16 max-w-md mx-auto">
             <div className="text-5xl mb-4">🛒</div>
@@ -36,15 +38,19 @@ export const CheckoutPage: React.FC = () => {
 
   const total = cartItem.product.price * cartItem.quantity;
 
-  // Checkout steps for progress indicator
   const steps = [
-    { label: 'Récapitulatif', completed: true },
+    { label: t.checkout.baridimob, completed: true },
     { label: 'Paiement', completed: false },
     { label: 'Confirmation', completed: false },
   ];
 
   return (
     <div className="section pt-28">
+      <SEO
+        title="Finaliser ma commande | Edzy"
+        description="Terminez votre achat en toute sécurité. Payez par BaridiMob ou CCP et recevez vos accès rapidement."
+        language={language}
+      />
       <div className="container-custom">
         {/* Progress Indicator */}
         <div className="mb-10">
@@ -56,7 +62,7 @@ export const CheckoutPage: React.FC = () => {
                     className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm ${step.completed
                         ? 'bg-green-500 text-white'
                         : index === 1
-                          ? 'bg-yellow-400 text-gray-900 ring-4 ring-yellow-100'
+                          ? 'bg-[#8DE713] text-[#041D06] ring-4 ring-[#8DE713]/10'
                           : 'bg-gray-100 text-gray-400'
                       }`}
                   >

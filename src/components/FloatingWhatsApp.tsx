@@ -1,14 +1,17 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { useAnalytics } from '../hooks/useAnalytics';
 
 export const FloatingWhatsApp: React.FC = () => {
     const { t, isRTL } = useLanguage();
+    const { trackWhatsAppClick } = useAnalytics();
 
     return (
         <a
             href="https://wa.me/213555123456"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick('floating_widget')}
             className={`fixed bottom-6 z-50 flex items-center gap-3 bg-green-500 text-white pl-4 pr-5 py-3 rounded-full shadow-lg hover:bg-green-600 transition-all hover:scale-105 group ${isRTL ? 'left-6' : 'right-6'}`}
         >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

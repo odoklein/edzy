@@ -22,7 +22,7 @@ export const SettingsPage: React.FC = () => {
                     <h1 className="text-3xl font-black text-slate-900 italic">Configuration Système</h1>
                     <p className="text-slate-500 font-medium mt-1">Gérez les préférences et l'identité de votre plateforme.</p>
                 </div>
-                <button className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-black py-4 px-10 rounded-[20px] shadow-lg shadow-yellow-400/20 transition-all uppercase text-[11px] tracking-[2px] italic">
+                <button className="bg-[#8DE713] hover:bg-[#8DE713]/90 text-[#041D06] font-black py-4 px-10 rounded-[20px] shadow-lg shadow-[#8DE713]/20 transition-all uppercase text-[11px] tracking-[2px] italic">
                     Sauvegarder
                 </button>
             </div>
@@ -30,7 +30,7 @@ export const SettingsPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div className="md:col-span-1">
                     <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest mb-2 flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#8DE713]"></div>
                         Identité Visuelle
                     </h3>
                     <p className="text-xs text-slate-400 font-bold leading-relaxed">Ces informations seront affichées sur les factures et le portail client.</p>
@@ -43,7 +43,7 @@ export const SettingsPage: React.FC = () => {
                                 type="text"
                                 value={settings.siteName}
                                 onChange={(e) => setSettings({ ...settings, siteName: e.target.value })}
-                                className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-bold focus:ring-2 focus:ring-yellow-400 outline-none transition-all"
+                                className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-bold focus:ring-2 focus:ring-[#8DE713] outline-none transition-all"
                             />
                         </div>
                         <div className="grid grid-cols-2 gap-6">
@@ -53,7 +53,7 @@ export const SettingsPage: React.FC = () => {
                                     type="email"
                                     value={settings.email}
                                     onChange={(e) => setSettings({ ...settings, email: e.target.value })}
-                                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-bold focus:ring-2 focus:ring-yellow-400 outline-none transition-all"
+                                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-bold focus:ring-2 focus:ring-[#8DE713] outline-none transition-all"
                                 />
                             </div>
                             <div>
@@ -62,7 +62,7 @@ export const SettingsPage: React.FC = () => {
                                     type="tel"
                                     value={settings.phone}
                                     onChange={(e) => setSettings({ ...settings, phone: e.target.value })}
-                                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-bold focus:ring-2 focus:ring-yellow-400 outline-none transition-all"
+                                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-bold focus:ring-2 focus:ring-[#8DE713] outline-none transition-all"
                                 />
                             </div>
                         </div>
@@ -75,7 +75,7 @@ export const SettingsPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div className="md:col-span-1">
                     <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest mb-2 flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#8DE713]"></div>
                         Finances et Flux
                     </h3>
                     <p className="text-xs text-slate-400 font-bold leading-relaxed">Coordonnées bancaires pour les virements BaridiMob et CCP.</p>
@@ -88,7 +88,7 @@ export const SettingsPage: React.FC = () => {
                                 type="text"
                                 value={settings.baridimobRIP}
                                 onChange={(e) => setSettings({ ...settings, baridimobRIP: e.target.value })}
-                                className="w-full bg-[#0F172A] border border-slate-800 rounded-2xl py-4 px-6 text-sm font-mono font-bold text-yellow-400 outline-none transition-all"
+                                className="w-full bg-[#041D06] border border-slate-800 rounded-2xl py-4 px-6 text-sm font-mono font-bold text-[#8DE713] outline-none transition-all"
                             />
                         </div>
                         <div className="grid grid-cols-3 gap-4">
@@ -98,7 +98,7 @@ export const SettingsPage: React.FC = () => {
                                     type="text"
                                     value={settings.ccpNumber}
                                     onChange={(e) => setSettings({ ...settings, ccpNumber: e.target.value })}
-                                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-bold focus:ring-2 focus:ring-yellow-400 outline-none transition-all font-mono"
+                                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-bold focus:ring-2 focus:ring-[#8DE713] outline-none transition-all font-mono"
                                 />
                             </div>
                             <div>
@@ -107,7 +107,7 @@ export const SettingsPage: React.FC = () => {
                                     type="text"
                                     value={settings.ccpKey}
                                     onChange={(e) => setSettings({ ...settings, ccpKey: e.target.value })}
-                                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-bold focus:ring-2 focus:ring-yellow-400 outline-none transition-all font-mono"
+                                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3.5 px-5 text-sm font-bold focus:ring-2 focus:ring-[#8DE713] outline-none transition-all font-mono"
                                 />
                             </div>
                         </div>
@@ -120,7 +120,7 @@ export const SettingsPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div className="md:col-span-1">
                     <h3 className="text-sm font-black text-slate-900 uppercase tracking-widest mb-2 flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-yellow-400"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#8DE713]"></div>
                         Communications
                     </h3>
                     <p className="text-xs text-slate-400 font-bold leading-relaxed">Contrôlez les flux d'alertes automatiques et de rapports.</p>
@@ -139,7 +139,7 @@ export const SettingsPage: React.FC = () => {
                                 </div>
                                 <button
                                     onClick={() => setSettings({ ...settings, [item.key]: !settings[item.key as keyof typeof settings] })}
-                                    className={`w-14 h-8 rounded-full transition-all relative ${settings[item.key as keyof typeof settings] ? 'bg-emerald-500 shadow-lg shadow-emerald-500/20' : 'bg-slate-200'}`}
+                                    className={`w-14 h-8 rounded-full transition-all relative ${settings[item.key as keyof typeof settings] ? 'bg-[#8DE713] shadow-lg shadow-[#8DE713]/20' : 'bg-slate-200'}`}
                                 >
                                     <span className={`absolute top-1.5 w-5 h-5 bg-white rounded-full transition-all shadow-md ${settings[item.key as keyof typeof settings] ? 'right-1.5' : 'left-1.5'}`} />
                                 </button>
